@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页面实现复制粘贴功能</title>
+		<script type="text/javascript" src="js/clipborrd.js" ></script>
+	</head>
+	<body>
+		<p id="text">这是复制粘贴的内容</p>
+	　　<a href="javascript:;" id="copyBtn" class="f-r tac" data-clipboard-text="0000" data-clipboard-action="copy" >点击复制上面的文字</a>
+
+		<!-- 
+			js学习
+			获取id节点
+			document.getElementById()
+
+			获取节点html的内容
+			node.innerHTML
+
+			获取节点的属性值
+			node.getAttribute('key')
+
+			给节点的属性值设值
+			node.setAttribute('key','value')
+
+			删除节点属性
+			node.removeAttribute('key')
+		 -->
+	</body>
+
+	<script type="text/javascript">
+		var textNode = document.getElementById('text');
+		var copyNode = document.getElementById('copyBtn');
+		var text = textNode.innerHTML;
+		
+		//复制按钮的点击事件
+		copyNode.addEventListener('click',function (){ 
+			copyNode.setAttribute('data-clipboard-text',text);
+			//console.log(copyNode.getAttribute('data-clipboard-text'))
+		 })
+
+	　　var clipboard = new Clipboard("#copyBtn");
+		clipboard.on('success', function(e) {
+		    alert("已复制");
+		});
+		
+		clipboard.on('error', function(e) {
+		    alert("请重试");
+		});
+	</script>
+</html>
+
