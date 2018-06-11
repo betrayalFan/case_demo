@@ -6,6 +6,19 @@
 		<script type="text/javascript" src="js/clipborrd.js" ></script>
 	</head>
 	<body>
+
+		<!-- 
+			clipborrd.js复制粘贴的兼容性：
+			chrome 42+
+			edge 12+
+			firefox 41+
+			ie 9+
+			opera 29+
+			safari 10+
+
+			safari 版本太低需要优雅降级
+			然后手动复制
+		 -->
 		<p id="text">这是复制粘贴的内容</p>
 	　　<a href="javascript:;" id="copyBtn" class="f-r tac" data-clipboard-text="0000" data-clipboard-action="copy" >点击复制上面的文字</a>
 
@@ -45,7 +58,7 @@
 		});
 		
 		clipboard.on('error', function(e) {
-		    alert("请重试");
+		    alert("请选择“拷贝”进行复制!");
 		});
 	</script>
 </html>
