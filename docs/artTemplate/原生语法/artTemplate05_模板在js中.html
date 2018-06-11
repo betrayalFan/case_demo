@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>artTemplate原生语法</title>
+    <script src="../js/artTemplate.js"></script>
+
+
+    <script>
+        window.onload = function () {
+            // 将模板放在js中
+            var str = '<h1><%=title%></h1>'+
+                '<ul>'+
+                '<%for( var i = 0; i < arr.length; i++){%>'+
+                '<li><%=arr[i]%>------<%=i%></li>'+
+                '<%}%>'+
+                '</ul>';
+
+            var data = {
+                title:'js原生语法 循环遍历',
+                arr: ['列表1', '列表2', '列表3', '列表4']
+            };
+            var oBox = document.getElementById("box1");
+            //var sHtml = template('tpl', data);
+
+            //var render = template.compile(str);
+            //var sHtml = render(data);
+
+            var sHtml = template.compile(str)(data);
+
+
+           
+            oBox.innerHTML = sHtml;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">box1</div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>artTemplate原生语法</title>
+    <script src="../js/artTemplate.js"></script>
+    <!-- 
+        引入的js文件都一样 没有区别
+        语法
+        <%=%>
+     -->
+    <script type="text/html" id="tpl">
+        <p><%=#msg%></p>
+        <!-- 简洁语法同样适用 -->
+        <p>{{#msg}}</p>
+    </script>
+
+    <script>
+        window.onload = function () {
+            var data = {
+                msg: '<strong>这是重点加粗</strong>'
+            };
+            var oBox = document.getElementById("box1");
+
+            var sHtml = template('tpl', data);
+            oBox.innerHTML = sHtml;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">box1</div>
+</body>
+
+</html>
